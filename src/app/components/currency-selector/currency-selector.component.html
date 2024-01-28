@@ -1,0 +1,17 @@
+<mat-form-field floatLabel="always" appearance="outline">
+    <mat-label>{{label}}</mat-label>
+    <mat-select [formControl]="currencyFormControl" placeholder="Currency" (selectionChange)="selectCurrency($event)">
+        <mat-select-trigger>
+            <div class="option">
+                <img src="{{currencyFormControl.value?.image}}">
+                <div class="name">{{currencyFormControl.value?.code + ' - ' + currencyFormControl.value?.name}}</div>
+            </div>
+        </mat-select-trigger>
+        <mat-option *ngFor="let currency of currencyList" [value]="currency">
+            <div class="option">
+                <img src="{{currency.image}}">
+                <div class="name">{{currency.code + ' - ' + currency.name}}</div>
+            </div>
+        </mat-option>
+    </mat-select>
+</mat-form-field>

@@ -1,0 +1,30 @@
+<div class="app-container">
+  <div class="converter-container">
+    <h1>Currency converter</h1>
+    <div class="app-content">
+      <div class="row" [ngStyle]="{'padding-top': result !== 0 ? '30px' : '0px'}">
+        <!--amount-->
+        <mat-form-field floatLabel="always" appearance="outline" class="mat-form-field-custom-outline">
+          <mat-label>Amount</mat-label>
+          <input matInput type="number" class="amount" placeholder="0" [(ngModel)]="amount">
+          <span matTextPrefix>{{symbol}}&nbsp;</span>
+        </mat-form-field>
+
+        <!--from-->
+        <app-currency-selector [label]="'From'"
+          (selectedCurrency)="selectedCurrency($event); result = 0;"></app-currency-selector>
+
+        <!--to-->
+        <app-currency-selector [label]="'To'" (selectedCurrency)="result = 0"></app-currency-selector>
+      </div>
+
+      <button (click)="convert()">Convert</button>
+
+      <div *ngIf="result !== 0">
+        <p>{{currencyService.getFrom().symbol}} {{amount}} ({{currencyService.getFrom().name}}) =
+          <span class="result"> {{currencyService.getTo().symbol}} {{result}} ({{currencyService.getTo().name}})</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

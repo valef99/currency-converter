@@ -1,0 +1,78 @@
+$primary-color: rgb(0 126 255 / 41%);
+
+.app-container {
+    height: 100vh;
+    width: 100vw;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: whitesmoke;
+
+    .converter-container {
+        display: grid;
+        height: 20vh;
+        padding: 50px;
+        border-radius: 10px;
+        box-shadow: 8px 8px 12px 0px $primary-color;
+        background: linear-gradient(126deg, #1a1a1a 1.48%, #454545 68.75%);
+        color: whitesmoke;
+
+        h1 {
+            margin: 0px;
+        }
+
+        .app-content {
+            display: grid;
+
+            .row {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: flex-end;
+                column-gap: 10px;
+
+                ::ng-deep .mat-mdc-text-field-wrapper {
+                    background-color: unset !important;
+                }
+
+                ::ng-deep mat-form-field {
+                    --mdc-outlined-text-field-focus-outline-color: rgb(0 126 255 / 80%);
+                    --mat-select-focused-arrow-color: rgb(0 126 255 / 80%);
+                    --mdc-outlined-text-field-focus-label-text-color: rgb(0 126 255 / 80%);
+                }
+            }
+
+            button {
+                border: unset;
+                border-radius: 5px;
+                box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+                justify-self: end;
+                padding: 10px 30px;
+                height: fit-content;
+                background-color: $primary-color;
+                color: whitesmoke;
+                font-family: Roboto, "Helvetica Neue", sans-serif;
+                font-weight: 600;
+                letter-spacing: 0.5px;
+                font-size: 18px;
+            }
+
+            .result {
+                font-weight: 600;
+                letter-spacing: 0.5px;
+                font-size: 18px;
+                color: rgb(0 126 255 / 80%);
+            }
+        }
+    }
+}
+
+::ng-deep .cdk-overlay-container {
+    --mat-option-selected-state-label-text-color: rgb(0 126 255 / 80%);
+}
+
+::ng-deep .mat-primary .mat-pseudo-checkbox-checked.mat-pseudo-checkbox-minimal::after,
+.mat-primary .mat-pseudo-checkbox-indeterminate.mat-pseudo-checkbox-minimal::after {
+    color: rgb(0 126 255 / 41%);
+}
