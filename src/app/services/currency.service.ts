@@ -1,13 +1,13 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from 'src/enviroments/enviroment';
+import { environment } from 'src/enviroments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CurrencyService {
-  private _apiKey = environment.apiKey;;
+  private _apiKey = environment.apiKey;
   private _from: any = null;
   private _to: any = null;
 
